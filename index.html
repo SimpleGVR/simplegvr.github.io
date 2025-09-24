@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
   <meta charset="UTF-8">
@@ -12,13 +12,13 @@
 <body>
   <div class="page-container">
 
-    <p
-      style="text-align: center; font-size: 20px; color: #ffdd77; background-color: #383838; padding: 15px; border-radius: 8px; margin-bottom: 40px; line-height: 1.6;">
+    <p class="loading-notice">
       <b>Loading Notice:</b> Due to the large number of videos, the initial page load may take some time. Thank you for
       your patience.<br>
       We have used a script to help synchronize video playback, but slight delays may still occur under different
       network conditions.
     </p>
+
     <h1 align="center">
       SimpleGVR: A Simple Baseline for<br>
       Latent-Cascaded Generative Video Super-Resolution
@@ -26,12 +26,12 @@
     <h1 align="center">Supplementary Material</h1>
     <h1 align="center">Paper ID #5131</h1>
 
-    <p align="left" style="font-size: 22px;">On this page, we first show five visual results of different
+    <p class="intro-text">On this page, we first show five visual results of different
       methods.</p>
-    <p align="left" style="font-size: 22px;">Subsequently, for the high-resolution T2V task, we present a comparison
+    <p class="intro-text">Subsequently, for the high-resolution T2V task, we present a comparison
       between Cascade (Large T2V + SimpleGVR) and
       End-to-End (Large T2V) results.</p>
-    <p align="left" style="font-size: 22px;">We recommend watching all comparisons in full screen. Click on the videos
+    <p class="intro-text">We recommend watching all comparisons in full screen. Click on the videos
       for seeing them in full scale.</p>
 
     <hr>
@@ -502,7 +502,7 @@
         return new Promise((resolve) => {
           video.addEventListener('canplaythrough', () => {
             resolve();
-          }, { once: true }); // { once: true }
+          }, { once: true });
 
           if (video.readyState >= 4) {
             resolve();

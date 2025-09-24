@@ -1,3 +1,7 @@
+html {
+  font-size: 16px; /* 设置 1rem 的基准值 */
+}
+
 body {
     font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
     background-color: #222222;
@@ -12,6 +16,24 @@ body {
     text-align: left;
     padding: 1em;
 }
+
+/* 新增：用于替换内联样式的类 */
+.loading-notice {
+    text-align: center;
+    font-size: 1.25rem; /* 20px / 16px */
+    color: #ffdd77;
+    background-color: #383838;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.intro-text {
+    font-size: 1.375rem; /* 22px / 16px */
+    text-align: left;
+}
+/* --- */
 
 a:link, a:active, a:visited {
     color: #4488ff;
@@ -40,10 +62,9 @@ hr {
   src: url("fonts/CAVOLINI.TTF") format("truetype");
 }
 
-
 .section-title {
     text-align: center;
-    font-size: 24px;
+    font-size: 1.75rem;  /* 28px / 16px */
     font-weight: 600;
     color: #eeeeee;
     margin-top: 30px;
@@ -57,7 +78,7 @@ hr {
 
 .group-prompt {
     font-family: 'Cavolini', 'Noto Sans', sans-serif;
-    font-size: 22px;
+    font-size: 1.5rem; /* 24px / 16px */
     margin-bottom: 25px;
     color: #FFF;
     text-align: center;
@@ -89,7 +110,7 @@ hr {
 
 .video-caption {
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 1.125rem; /* 18px / 16px */
     color: #dddddd;
     font-weight: normal;
 }
