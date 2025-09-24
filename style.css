@@ -43,7 +43,7 @@ hr {
 
 .section-title {
     text-align: center;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 600;
     color: #eeeeee;
     margin-top: 30px;
@@ -57,7 +57,7 @@ hr {
 
 .group-prompt {
     font-family: 'Cavolini', 'Noto Sans', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 25px;
     color: #FFF;
     text-align: center;
