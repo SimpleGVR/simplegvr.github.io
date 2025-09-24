@@ -23,12 +23,11 @@ a:hover {
     text-decoration: none;
 }
 
-/* 调整hr的边距，使其与新标题更协调 */
 hr {
     background-color: #555;
     border: none;
     height: 1px;
-    margin-top: 80px; /* 增加组与组之间的垂直距离 */
+    margin-top: 80px;
     margin-bottom: 0;
 }
 
@@ -41,7 +40,7 @@ hr {
   src: url("fonts/CAVOLINI.TTF") format("truetype");
 }
 
-/* --- 新增：用于分隔不同对比组的大标题 --- */
+
 .section-title {
     text-align: center;
     font-size: 28px;
@@ -75,10 +74,10 @@ hr {
 .video-item {
     width: 100%;
     text-align: center;
-    border: 3px solid transparent; /* 为所有项添加透明边框占位 */
-    border-radius: 9px; /* 圆角稍大于视频的圆角 */
-    padding: 3px; /* 增加一点内边距 */
-    box-sizing: border-box; /* 防止边框和内边距影响布局 */
+    border: 3px solid transparent;
+    border-radius: 9px;
+    padding: 3px;
+    box-sizing: border-box;
 }
 
 .video-item video {
@@ -95,17 +94,15 @@ hr {
     font-weight: normal;
 }
 
-/* --- 用于高亮我们自己的结果 --- */
 .video-item.ours {
-    border-color: #e54b4b; /* 一个醒目的红色 */
+    border-color: #e54b4b;
 }
 
 .video-item.ours .video-caption {
-    color: #B1FF00; /* 一个醒目的亮绿色 */
+    color: #B1FF00;
     font-weight: bold;
 }
 
-/* --- 用于展示2个视频的网格容器 --- */
 .video-grid-2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
