@@ -1,0 +1,115 @@
+body {
+    font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+    background-color: #222222;
+    color: #fff;
+}
+
+.page-container {
+    width: 90%;
+    max-width: 1400px;
+    min-height: 1000px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 1em;
+}
+
+a:link, a:active, a:visited {
+    color: #4488ff;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+/* 调整hr的边距，使其与新标题更协调 */
+hr {
+    background-color: #555;
+    border: none;
+    height: 1px;
+    margin-top: 80px; /* 增加组与组之间的垂直距离 */
+    margin-bottom: 0;
+}
+
+.emph {
+    color: #B1FF00;
+}
+
+@font-face {
+  font-family: 'Cavolini';
+  src: url("fonts/CAVOLINI.TTF") format("truetype");
+}
+
+/* --- 新增：用于分隔不同对比组的大标题 --- */
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #eeeeee;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.comparison-group {
+    margin-bottom: 40px;
+}
+
+.group-prompt {
+    font-family: 'Cavolini', 'Noto Sans', sans-serif;
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #FFF;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.video-grid-9 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 20px;
+}
+
+.video-item {
+    width: 100%;
+    text-align: center;
+    border: 3px solid transparent; /* 为所有项添加透明边框占位 */
+    border-radius: 9px; /* 圆角稍大于视频的圆角 */
+    padding: 3px; /* 增加一点内边距 */
+    box-sizing: border-box; /* 防止边框和内边距影响布局 */
+}
+
+.video-item video {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    background-color: #111;
+}
+
+.video-caption {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #dddddd;
+    font-weight: normal;
+}
+
+/* --- 用于高亮我们自己的结果 --- */
+.video-item.ours {
+    border-color: #e54b4b; /* 一个醒目的红色 */
+}
+
+.video-item.ours .video-caption {
+    color: #B1FF00; /* 一个醒目的亮绿色 */
+    font-weight: bold;
+}
+
+/* --- 用于展示2个视频的网格容器 --- */
+.video-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 20px;
+    max-width: 67%;
+    margin: 0 auto;
+}

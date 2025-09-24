@@ -1,568 +1,521 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="A Simple Baseline for Latent-Cascaded Video Super-Resolution">
-  <meta name="keywords" content="SimpleGVR">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SimpleGVR</title>
-  <!-- Latex -->
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-        TeX: { equationNumbers: { autoNumber: "AMS" } },
-      });
-      </script>
-  <script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
-    </script>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <!--   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-
-  </script> -->
-  <style>
-    .hr {
-      width: 100%;
-      height: 1px;
-      margin: 48px 0;
-      background-color: #d6dbdf;
-    }
-  </style>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/bulma.min.css">
-  <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="./assets/css/index.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-
-  <!-- custom css file  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/twentytwenty.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>SimpleGVR: A Simple Baseline for Latent-Cascaded Generative Video Super-Resolution</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.cdnfonts.com/css/chalkduster" rel="stylesheet">
 </head>
 
 <body>
+  <div class="page-container">
 
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">
-              <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
-              <span style="color: #4285F4;">Simple</span><span style="color: #EA4335;">G</span><span
-                style="color: #FBBC05;">V</span><span style="color: #34A853;">R</span><br>
-              <span style="font-size: 2.0rem;">
-                A <span style="color: #4285F4;">Simple</span> Baseline for
-                Latent-Cascaded <span style="color: #FBBC05;">V</span>ideo
-                Super-<span style="color: #34A853;">R</span>esolution
-              </span>
-            </h1>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                Anonymous Authors
-              </span>
+    <p
+      style="text-align: center; font-size: 20px; color: #ffdd77; background-color: #383838; padding: 15px; border-radius: 8px; margin-bottom: 40px; line-height: 1.6;">
+      <b>Loading Notice:</b> Due to the large number of videos, the initial page load may take some time. Thank you for
+      your patience.<br>
+      We have used a script to help synchronize video playback, but slight delays may still occur under different
+      network conditions.
+    </p>
+    <h1 align="center">
+      SimpleGVR: A Simple Baseline for<br>
+      Latent-Cascaded Generative Video Super-Resolution
+    </h1>
+    <h1 align="center">Supplementary Material</h1>
+    <h1 align="center">Paper ID #5131</h1>
 
-              <!-- link button -->
-              <div class="column has-text-centered">
-                <div class="publication-links">
-                  <!-- PDF Link. -->
-                  <!-- <span class="link-block">
-                  <a class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Paper</span>
-                  </a>
-                </span> -->
-                  <!-- <span class="link-block">
-                    <a class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="ai ai-arxiv"></i>
-                      </span>
-                      <span>arXiv</span>
-                    </a>
-                  </span> -->
-                </div>
+    <p align="left" style="font-size: 22px;">On this page, we first show five visual results of different
+      methods.</p>
+    <p align="left" style="font-size: 22px;">Subsequently, for the high-resolution T2V task, we present a comparison
+      between Cascade (Large T2V + SimpleGVR) and
+      End-to-End (Large T2V) results.</p>
+    <p align="left" style="font-size: 22px;">We recommend watching all comparisons in full screen. Click on the videos
+      for seeing them in full scale.</p>
 
-              </div>
-              <!-- link button -->
+    <hr>
+    <h2 class="section-title">Visual Comparison of different methods</h2>
 
-              <!-- Paper video. -->
-              <div id="spotlight-video">
-                <div class="container is-max-desktop">
-                  <div class="column">
-                    <h2 class="title is-3">
-                      <span class="b">Demo Video <span style="font-weight:bold; font-size: smaller;">(Please set
-                          quality
-                          to the <span style="color: rgba(195, 0, 255, 0.732);">highest</span>)</span></span>
-                    </h2>
-                    <div class="publication-video">
-                      <iframe src="https://www.youtube.com/embed/qZ1Hw-p2kO0?rel=0&amp;showinfo=0" frameborder="0"
-                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <div class="comparison-group">
+      <h3 class="group-prompt">"A close-up view of a cute little white chick wearing black-framed glasses perched on the
+        end of its beak, sitting
+        comfortably on a plush, brown, and worn-out sofa in a cozy living room. "</h3>
 
-              <!-- Paper video.
-            <div class="columns is-centered has-text-centered">
-              <div class="column is-four-fifths">
-                <div class="publication-video">
-                  <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0" frameborder="0"
-                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-              </div>
-            </div> -->
-              <!--/ Paper video. -->
-            </div>
-          </div>
+      <div class="video-grid-9">
+
+        <div class="video-item">
+          <a href="videos/chicken/input.mp4" target="_blank">
+            <video src="videos/chicken/input.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Input</p>
         </div>
-      </div>
-  </section>
 
-
-  <section class="hero is-light is-small">
-    <div class="hero-body">
-      <div class="columns is-centered has-text-centered">
-      </div>
-
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-
-          <div class="item">
-            <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
-              <div class="desc">Input: from LargeT2V (384x672)</div>
-              <div class="video">
-                <video muted autoplay="autoplay" loop="loop" width="100%">
-                  <source src="./assets/videos/2_lr.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="video">
-                <video muted autoplay="autoplay" loop="loop" width="100%">
-                  <source src="./assets/videos/2_sr.mp4" type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
-              <div class="desc">Input: from LargeT2V (384x672)</div>
-              <div class="video">
-                <video muted autoplay="autoplay" loop="loop" width="100%">
-                  <source src="./assets/videos/3_lr.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="video">
-                <video muted autoplay="autoplay" loop="loop" width="100%">
-                  <source src="./assets/videos/3_sr.mp4" type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
-              <div class="desc">Input: from LargeT2V (384x672)</div>
-              <div class="video">
-                <video muted autoplay="autoplay" loop="loop" width="100%">
-                  <source src="./assets/videos/5_lr.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="video">
-                <video muted autoplay="autoplay" loop="loop" width="100%">
-                  <source src="./assets/videos/5_sr.mp4" type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
-              <div class="desc">Input: from LargeT2V (384x672)</div>
-              <div class="video">
-                <video muted autoplay="autoplay" loop="loop" width="100%">
-                  <source src="./assets/videos/1_lr.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="video">
-                <video muted autoplay="autoplay" loop="loop" width="100%">
-                  <source src="./assets/videos/1_sr.mp4" type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
-              <div class="desc">Input: from LargeT2V (384x672)</div>
-              <div class="video">
-                <video muted autoplay="autoplay" loop="loop" width="100%">
-                  <source src="./assets/videos/4_lr.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="video">
-                <video muted autoplay="autoplay" loop="loop" width="100%">
-                  <source src="./assets/videos/4_sr.mp4" type="video/mp4">
-                </video>
-              </div>
-            </div>
-          </div>
-
+        <div class="video-item ours">
+          <a href="videos/chicken/simplegvr.mp4" target="_blank">
+            <video src="videos/chicken/simplegvr.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption"><b>SimpleGVR (Ours)</b></p>
         </div>
-      </div>
-  </section>
 
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              Latent diffusion models have emerged as a leading paradigm for efficient video generation. However, as
-              user expectations shift toward higher-resolution outputs, relying solely on latent computation becomes
-              inadequate. A promising approach involves decoupling the process into two stages: semantic content
-              generation and detail synthesis. The former employs a computationally intensive base model at lower
-              resolutions, while the latter leverages <b>a lightweight cascaded video super-resolution (VSR) model</b>
-              to
-              achieve high-resolution output. In this work, we focus on studying key design principles for latter
-              cascaded VSR models, which are underexplored currently. First, we propose two degradation strategies to
-              generate training pairs that better mimic the output characteristics of the base model, ensuring alignment
-              between the VSR model and its upstream generator. Second, we provide critical insights into VSR model
-              behavior through systematic analysis of (1) timestep sampling strategies, (2) noise augmentation effects
-              on low-resolution (LR) inputs. These findings directly inform our architectural and training innovations.
-              Finally, we introduce interleaving temporal unit and sparse local attention to achieve efficient training
-              and inference, drastically reducing computational overhead. Extensive experiments demonstrate the
-              superiority of our framework over existing methods, with ablation studies confirming the efficacy of each
-              design choice. Our work establishes a simple yet effective baseline for cascaded video super-resolution
-              generation, offering practical insights to guide future advancements in efficient cascaded synthesis
-              systems.
-            </p>
-          </div>
+        <div class="video-item">
+          <a href="videos/chicken/seedvr1_7b.mp4" target="_blank">
+            <video src="videos/chicken/seedvr1_7b.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">SeedVR1 (7B)</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/chicken/flashvideo.mp4" target="_blank">
+            <video src="videos/chicken/flashvideo.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">FlashVideo</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/chicken/star.mp4" target="_blank">
+            <video src="videos/chicken/star.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">STAR</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/chicken/venhancer.mp4" target="_blank">
+            <video src="videos/chicken/venhancer.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">VEnhancer</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/chicken/uav.mp4" target="_blank">
+            <video src="videos/chicken/uav.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Upscale-A-Video</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/chicken/lavie.mp4" target="_blank">
+            <video src="videos/chicken/lavie.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Lavie</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/chicken/realbasicvsr.mp4" target="_blank">
+            <video src="videos/chicken/realbasicvsr.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">RealBasicVSR</p>
+        </div>
+
+      </div>
+    </div>
+    <hr>
+
+    <h2 class="section-title">Visual Comparison of different methods</h2>
+
+    <div class="comparison-group">
+      <h3 class="group-prompt">"A giant panda with soft, fluffy fur and a gentle demeanor is sitting on a wooden dock by
+        the serene shores of a tranquil
+        lake, strumming the strings of a guitar with its paws."</h3>
+
+      <div class="video-grid-9">
+
+        <div class="video-item">
+          <a href="videos/panda/input.mp4" target="_blank">
+            <video src="videos/panda/input.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Input</p>
+        </div>
+
+        <div class="video-item ours">
+          <a href="videos/panda/simplegvr.mp4" target="_blank">
+            <video src="videos/panda/simplegvr.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption"><b>SimpleGVR (Ours)</b></p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/panda/seedvr1_7b.mp4" target="_blank">
+            <video src="videos/panda/seedvr1_7b.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">SeedVR1 (7B)</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/panda/flashvideo.mp4" target="_blank">
+            <video src="videos/panda/flashvideo.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">FlashVideo</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/panda/star.mp4" target="_blank">
+            <video src="videos/panda/star.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">STAR</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/panda/venhancer.mp4" target="_blank">
+            <video src="videos/panda/venhancer.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">VEnhancer</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/panda/uav.mp4" target="_blank">
+            <video src="videos/panda/uav.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Upscale-A-Video</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/panda/lavie.mp4" target="_blank">
+            <video src="videos/panda/lavie.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Lavie</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/panda/realbasicvsr.mp4" target="_blank">
+            <video src="videos/panda/realbasicvsr.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">RealBasicVSR</p>
+        </div>
+
+      </div>
+    </div>
+    <hr>
+
+    <h2 class="section-title">Visual Comparison of different methods</h2>
+
+    <div class="comparison-group">
+      <h3 class="group-prompt">"Two majestic tigers, their vibrant orange and black stripes glistening in the sunlight,
+        are sitting at a sleek, modern
+        dining table, wearing trendy sunglasses with brightly colored frames."</h3>
+
+      <div class="video-grid-9">
+
+        <div class="video-item">
+          <a href="videos/tiger/input.mp4" target="_blank">
+            <video src="videos/tiger/input.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Input</p>
+        </div>
+
+        <div class="video-item ours">
+          <a href="videos/tiger/simplegvr.mp4" target="_blank">
+            <video src="videos/tiger/simplegvr.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">SimpleGVR (Ours)</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/tiger/seedvr1_7b.mp4" target="_blank">
+            <video src="videos/tiger/seedvr1_7b.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">SeedVR1 (7B)</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/tiger/flashvideo.mp4" target="_blank">
+            <video src="videos/tiger/flashvideo.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">FlashVideo</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/tiger/star.mp4" target="_blank">
+            <video src="videos/tiger/star.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">STAR</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/tiger/venhancer.mp4" target="_blank">
+            <video src="videos/tiger/venhancer.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">VEnhancer</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/tiger/uav.mp4" target="_blank">
+            <video src="videos/tiger/uav.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Upscale-A-Video</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/tiger/lavie.mp4" target="_blank">
+            <video src="videos/tiger/lavie.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Lavie</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/tiger/realbasicvsr.mp4" target="_blank">
+            <video src="videos/tiger/realbasicvsr.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">RealBasicVSR</p>
+        </div>
+
+      </div>
+    </div>
+    <hr>
+
+    <h2 class="section-title">Visual Comparison of different methods</h2>
+    <div class="comparison-group">
+      <h3 class="group-prompt">"A stunning 18-year-old woman with a delicate melon-seed face, defined facial features,
+        and a slender oval face shape
+        stands confidently by a serene pool area, capturing the viewer's attention."</h3>
+
+      <div class="video-grid-9">
+
+        <div class="video-item">
+          <a href="videos/human/input.mp4" target="_blank">
+            <video src="videos/human/input.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Input</p>
+        </div>
+
+        <div class="video-item ours">
+          <a href="videos/human/simplegvr.mp4" target="_blank">
+            <video src="videos/human/simplegvr.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">SimpleGVR (Ours)</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human/seedvr1_7b.mp4" target="_blank">
+            <video src="videos/human/seedvr1_7b.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">SeedVR1 (7B)</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human/flashvideo.mp4" target="_blank">
+            <video src="videos/human/flashvideo.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">FlashVideo</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human/star.mp4" target="_blank">
+            <video src="videos/human/star.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">STAR</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human/venhancer.mp4" target="_blank">
+            <video src="videos/human/venhancer.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">VEnhancer</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human/uav.mp4" target="_blank">
+            <video src="videos/human/uav.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Upscale-A-Video</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human/lavie.mp4" target="_blank">
+            <video src="videos/human/lavie.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Lavie</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human/realbasicvsr.mp4" target="_blank">
+            <video src="videos/human/realbasicvsr.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">RealBasicVSR</p>
         </div>
       </div>
     </div>
-  </section>
+    <hr>
 
-  <hr />
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <h2 class="title is-3">Overall Framework</h2>
-          <div class="content has-text-justified">
-            <p>
-              Our cascaded video generation framework operates within a latent space defined by a pre-trained VAE. The
-              framework comprises two core components (shown in figure (b) below): <br>
-              (i) A computationally intensive base Text-to-Video (T2V) model, which employs a Diffusion Transformer
-              (DiT) architecture to generate low-resolution video latent representations. <br>
-              (ii) A cascaded latent video super-resolution model, termed SimpleGVR, which adopts a lightweight
-              architecture to efficiently enhance the base model's output into high-resolution video latent
-              representations.
-            </p>
-            <br>
-            <img src="./assets/images/pipeline.png" alt="Method Page 1" style="width: 100%; margin-bottom: 1rem;">
-          </div>
+    <h2 class="section-title">Visual Comparison of different methods</h2>
+    <div class="comparison-group">
+      <h3 class="group-prompt">"A young lady wearing a sling deep V skirt eats roast chicken in front of the camera."
+      </h3>
+
+      <div class="video-grid-9">
+
+        <div class="video-item">
+          <a href="videos/human2/input.mp4" target="_blank">
+            <video src="videos/human2/input.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Input</p>
+        </div>
+
+        <div class="video-item ours">
+          <a href="videos/human2/simplegvr.mp4" target="_blank">
+            <video src="videos/human2/simplegvr.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">SimpleGVR (Ours)</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human2/seedvr1_7b.mp4" target="_blank">
+            <video src="videos/human2/seedvr1_7b.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">SeedVR1 (7B)</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human2/flashvideo.mp4" target="_blank">
+            <video src="videos/human2/flashvideo.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">FlashVideo</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human2/star.mp4" target="_blank">
+            <video src="videos/human2/star.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">STAR</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human2/venhancer.mp4" target="_blank">
+            <video src="videos/human2/venhancer.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">VEnhancer</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human2/uav.mp4" target="_blank">
+            <video src="videos/human2/uav.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Upscale-A-Video</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human2/lavie.mp4" target="_blank">
+            <video src="videos/human2/lavie.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Lavie</p>
+        </div>
+
+        <div class="video-item">
+          <a href="videos/human2/realbasicvsr.mp4" target="_blank">
+            <video src="videos/human2/realbasicvsr.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">RealBasicVSR</p>
         </div>
       </div>
     </div>
-  </section>
+    <hr>
 
-  <hr />
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <h2 class="title is-3"><span style="color: red;">Three key perspectives</span> in SimpleGVR</h2>
-          <div class="content has-text-justified">
-            <ul>
-              <li>
-                <b>Degradation modeling</b>, which synthesizes training pairs to ensure better alignment between
-                the VSR model and its upstream generator.
-                <ul>
-                  <li>
-                    Flow-based degradation, where optical flow guides motion-aware color blending and adaptive blurring.
-                  </li>
-                  <li>
-                    Model-guided degradation, where noise is added to low-resolution video frames and partially denoised
-                    using the base T2V model. (see picture below)<br><br>
-                    <img src="./assets/images/sdedit.png" alt="Method Page 1"
-                      style="width: 100%; margin: 0 auto 1rem auto; display: block;">
-                  </li>
-                </ul>
-              </li>
 
-              <li>
-                <b>Training configurations</b>, which promote faithful detail generation.
-                <ul>
-                  <li>
-                    Detail-aware sampler, where higher sampling probabilities are assigned to the timestep intervals
-                    that contribute more to detail enhancement. (In the figure below, a higher value at a timestep
-                    interval indicates greater importance for enhancing visual details.) <br><br>
-                    <img src="./assets/images/freq_variation.png" alt="Method Page 1"
-                      style="width: 60%; margin: 0 auto 1rem auto; display: block;">
-                  </li>
-                  <li>
-                    Middle noise augmentation interval (0.3~0.6). When SimpleGVR is trained with noise in this interval,
-                    it
-                    is capable of enhancing high-frequency details while still being able to correct structural errors
-                    in the input frames.
-                  </li>
-                </ul>
-              </li>
+    <h2 class="section-title">1080p T2V Comparison: End-to-End vs. Cascade</h2>
+    <div class="comparison-group">
+      <h3 class="group-prompt">A giant panda with soft, fluffy fur and a gentle demeanor is sitting on a wooden dock by
+        the serene shores of a tranquil
+        lake, strumming the strings of a guitar with its paws.</h3>
 
-              <li>
-                <b>Efficient pseudo-global computation</b>, which address high-resolution video computation demands.
-                <ul>
-                  <li>
-                    Interleaving temporal unit, which expands SimpleGVR’s capability to handle 77 frames in an effective
-                    way.
-                    <img src="./assets/images/temporal_unit.png" alt="Method Page 1"
-                      style="width: 60%; margin: 0 auto 1rem auto; display: block;">
-                  </li>
-                  <li>
-                    Sparse local attention, which reduces computational overhead during inference.<br><br>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <br>
-          </div>
+      <div class="video-grid-2">
+
+        <div class="video-item">
+          <a href="videos/t2v/1/end-to-end.mp4" target="_blank">
+            <video src="videos/t2v/1/end-to-end.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">End-to-End (Large T2V)</p>
         </div>
+
+        <div class="video-item ours">
+          <a href="videos/t2v/1/cascade.mp4" target="_blank">
+            <video src="videos/t2v/1/cascade.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Cascade (Large T2V + SimpleGVR)</p>
+        </div>
+
       </div>
     </div>
-  </section>
+    <hr>
 
-  <hr />
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <h2 class="title is-3">Results</h2>
-          <div class="content has-text-justified">
-            <img src="./assets/images/teasor.png" alt="Method Page 1" style="width: 100%; margin-bottom: 1rem;">
-            <img src="./assets/images/compare.png" alt="Method Page 1" style="width: 100%; margin-bottom: 1rem;">
-          </div>
+    <h2 class="section-title">1080p T2V Comparison: End-to-End vs. Cascade</h2>
+    <div class="comparison-group">
+      <h3 class="group-prompt">A furry kitten squats in front of a glass fish tank, staring intently at the orange fish
+        swimming in the water. The
+        bottom of the fish tank is covered with colorful stones.</h3>
+
+      <div class="video-grid-2">
+
+        <div class="video-item">
+          <a href="videos/t2v/2/end-to-end.mp4" target="_blank">
+            <video src="videos/t2v/2/end-to-end.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">End-to-End (Large T2V)</p>
         </div>
+
+        <div class="video-item ours">
+          <a href="videos/t2v/2/cascade.mp4" target="_blank">
+            <video src="videos/t2v/2/cascade.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Cascade (Large T2V + SimpleGVR)</p>
+        </div>
+
       </div>
     </div>
-  </section>
+    <hr>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="content has-text-centered">
-        <a class="icon-link" href="https://youtu.be/zk5iDKAeVPY" target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </div>
+    <h2 class="section-title">1080p T2V Comparison: End-to-End vs. Cascade</h2>
+    <div class="comparison-group">
+      <h3 class="group-prompt">The mayonnaise is squeezed onto the sandwich, and the thick, yellow sauce slowly spreads
+        across the surface of the
+        bread.</h3>
 
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
-            <div class="columns is-centered">
-              <p>
-                This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io"
-                  target="_blank">Here</a>.
-              </p>
-            </div>
-          </div>
+      <div class="video-grid-2">
+
+        <div class="video-item">
+          <a href="videos/t2v/3/end-to-end.mp4" target="_blank">
+            <video src="videos/t2v/3/end-to-end.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">End-to-End (Large T2V)</p>
         </div>
+
+        <div class="video-item ours">
+          <a href="videos/t2v/3/cascade.mp4" target="_blank">
+            <video src="videos/t2v/3/cascade.mp4" autoplay loop muted></video>
+          </a>
+          <p class="video-caption">Cascade (Large T2V + SimpleGVR)</p>
+        </div>
+
       </div>
-
-      <!--=================Visitor==========================-->
-      <!-- <div class="content has-text-centered" style="padding:0 0 0 0">
-      <img src='https://visitor-badge.laobi.icu/badge?page_id=Vchitect/VEnhancer' alt='visitors'>
-    </div> -->
-
     </div>
-  </footer>
+    <hr>
 
-  <!-- custom js file  -->
-  <!-- <script defer src="./assets/js/fontawesome.all.min.js"></script> -->
-  <script src="./assets/js/bulma-carousel.min.js"></script>
-  <script src="./assets/js/bulma-slider.min.js"></script>
-  <script src="./assets/js/index.js"></script>
-  <script src="./assets/js/jquery.event.move.js"></script>
-  <script src="./assets/js/jquery.twentytwenty.js"></script>
-
+  </div>
   <script>
-    bulmaCarousel.attach('#results-carousel', {
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      infinite: true,
-      autoplay: true,
-      navigation: true
-    });
+    document.addEventListener('DOMContentLoaded', () => {
+      const videos = document.querySelectorAll('video');
 
-    // 初始化twentytwenty比较功能
-    $(function () {
-      $(".twentytwenty-container").twentytwenty();
-      // $(".twentytwenty-container", "#results-carousel").twentytwenty({default_offset_pct: 0.5, ratio: 0.5});
+      if (videos.length === 0) {
+        return;
+      }
+
+      const promises = Array.from(videos).map(video => {
+        return new Promise((resolve) => {
+          video.addEventListener('canplaythrough', () => {
+            resolve();
+          }, { once: true }); // { once: true }
+
+          if (video.readyState >= 4) {
+            resolve();
+          }
+        });
+      });
+
+      Promise.all(promises).then(() => {
+        videos.forEach(video => {
+          video.play();
+        });
+      });
     });
   </script>
-
-
-  <!-- 引入 Bulma CSS （需要时再加，如果已有可忽略） -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <!-- <style>
-      /* 如果想固定强制 2×2，可自行覆盖 Bulma 样式，如下： */
-      .columns.is-2x2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* 两列 */
-        grid-template-rows: auto auto;  /* 两行 */
-        gap: 1rem;
-      }
-      .slide-content {
-        display: none; /* 默认隐藏 */
-      }
-      .slide-content.is-active {
-        display: block; /* 显示被选中的 slide */
-      }
-      /* 去除底部小圆点上的默认背景 */
-      .dots .dot {
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
-      .card-img {
-        border: 2px solid #c1bfbf;
-        border-radius: 8px;
-        padding: 2px;
-        display: inline-block;
-        transition: transform 0.3s ease-in-out;
-        transform-origin: center center;
-      }
-      .card-img:active {
-        transform: scale(1.2);
-      }
-    </style> -->
-  <!--
-    <style>
-      /* 上下两个视频布局：1列2行 */
-      .columns.is-2x1 {
-        display: grid;
-        grid-template-columns: 1fr;     /* 1 列 */
-        grid-template-rows: auto auto; /* 2 行 */
-        gap: 1rem;
-      }
-      /* 默认隐藏每个slide */
-      .slide-content {
-        display: none;
-      }
-      /* 只显示被点选的slide */
-      .slide-content.is-active {
-        display: block;
-      }
-      /* 去掉小圆点默认背景 */
-      .dots .dot {
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
-      /* 缩略图样式 (可按需保留/修改) */
-      .card-img {
-        border: 2px solid #c1bfbf;
-        border-radius: 8px;
-        padding: 2px;
-        display: inline-block;
-        transition: transform 0.3s ease-in-out;
-        transform-origin: center center;
-      }
-      .card-img:active {
-        transform: scale(1.2);
-      }
-      /* 让四张图片等分排列在一行 */
-      .columns.is-four-images {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 一行四列 */
-        gap: 1rem;
-        margin-top: 1.5rem; /* 与上方视频留点间隔 */
-      }
-      /* 如果要让图片自适应宽度，可以加: */
-      .columns.is-four-images img {
-        width: 100%;
-        height: auto;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-      }
-    </style> -->
-
-  <style>
-    /* 上下两个内容布局：1列2行 */
-    .columns.is-2x1 {
-      display: grid;
-      grid-template-columns: 1fr;
-      /* 1 列 */
-      grid-template-rows: auto auto;
-      /* 2 行 */
-      gap: 1rem;
-    }
-
-    /* 默认隐藏每个 slide */
-    .slide-content {
-      display: none;
-    }
-
-    /* 只显示被点选的 slide */
-    .slide-content.is-active {
-      display: block;
-    }
-
-    /* 去掉小圆点默认背景 */
-    .dots .dot {
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* 缩略图样式 (可按需保留/修改) */
-    .card-img {
-      border: 2px solid #c1bfbf;
-      border-radius: 8px;
-      padding: 2px;
-      display: inline-block;
-      transition: transform 0.3s ease-in-out;
-      transform-origin: center center;
-    }
-
-    .card-img:active {
-      transform: scale(1.2);
-    }
-
-    /* 让四张图片等分排列在一行 */
-    .columns.is-four-images {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      /* 一行四列 */
-      gap: 1rem;
-      margin-top: 1.5rem;
-      /* 与上方留些间隔 */
-    }
-
-    .columns.is-four-images img {
-      width: 100%;
-      height: auto;
-      border: 2px solid #ccc;
-      border-radius: 4px;
-    }
-  </style>
-
 </body>
 
 </html>
