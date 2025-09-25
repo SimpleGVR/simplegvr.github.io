@@ -1,5 +1,5 @@
 html {
-  font-size: 16px;
+  font-size: 16px; /* 保持 1rem 的基准值为 16px */
 }
 
 body {
@@ -10,7 +10,7 @@ body {
 
 .page-container {
     width: 90%;
-    max-width: 1400px;
+    max-width: 1400px; /* 您可以根据需要调整此值，例如 1200px */
     min-height: 1000px;
     margin: 0 auto;
     text-align: left;
@@ -19,7 +19,7 @@ body {
 
 .loading-notice {
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1.125rem; /* 从 1.25rem 缩小 (原20px -> 18px) */
     color: #ffdd77;
     background-color: #383838;
     padding: 15px;
@@ -29,7 +29,7 @@ body {
 }
 
 .intro-text {
-    font-size: 1.375rem;
+    font-size: 1.25rem; /* 从 1.375rem 缩小 (原22px -> 20px) */
     text-align: left;
 }
 
@@ -62,7 +62,7 @@ hr {
 
 .section-title {
     text-align: center;
-    font-size: 1.75rem;
+    font-size: 1.625rem;  /* 从 1.75rem 缩小 (原28px -> 26px) */
     font-weight: 600;
     color: #eeeeee;
     margin-top: 30px;
@@ -76,7 +76,7 @@ hr {
 
 .group-prompt {
     font-family: 'Cavolini', 'Noto Sans', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.375rem; /* 从 1.5rem 缩小 (原24px -> 22px) */
     margin-bottom: 25px;
     color: #FFF;
     text-align: center;
@@ -108,7 +108,7 @@ hr {
 
 .video-caption {
     margin-top: 10px;
-    font-size: 1.125rem;
+    font-size: 1rem; /* 从 1.125rem 缩小 (原18px -> 16px) */
     color: #dddddd;
     font-weight: normal;
 }
@@ -129,3 +129,5 @@ hr {
     max-width: 67%;
     margin: 0 auto;
 }
+
+/* 注意：纯缩放模式下，响应式媒体查询已移除 */
